@@ -64,6 +64,8 @@ Goal: Answer *"What happened and why?"*
 - Average manufacturing cost by product type
 - Relationship between production volume and defect rate
 
+**Snapshot of the result**
+
 ### 5. Logistics Analysis
 - Total shipping cost by carrier
 - Average shipping time for air transport
