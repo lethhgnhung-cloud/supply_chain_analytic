@@ -56,6 +56,8 @@ Goal: Answer *"What happened and why?"*
   
   https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/topsupplier.csv
 
+  https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_lead_time.csv
+
 ### 4. Production Analysis
 - Total production volume per supplier
 - SKU and supplier with the lowest defect rate
