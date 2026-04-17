@@ -35,7 +35,7 @@ Goal: Answer *"What happened and why?"*
 - Top-3 revenue SKUs per product category using `DENSE_RANK()` window function
 - Average lead time across all products
   
-   ** Snapshot of the resutls **
+### Snapshot of the result
 
   https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_leadtime.csv
 
