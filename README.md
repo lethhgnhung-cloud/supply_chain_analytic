@@ -36,8 +36,15 @@ Goal: Answer *"What happened and why?"*
 - Average lead time across all products
   
    ** Snapshot of the resutls **
-   https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_leadtime.csv
 
+  https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_leadtime.csv
+
+  https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/avg_price.csv
+
+  https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/rev_rank.csv
+
+  https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/revenuerank.csv
+  
 ### 3. Procurement Analysis
 - Average lead time per supplier
 - Top 3 suppliers with highest defect rates
