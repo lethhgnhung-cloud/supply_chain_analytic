@@ -66,12 +66,32 @@ Goal: Answer *"What happened and why?"*
 
 **Snapshot of the result**
 
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/total%20production.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/volvsdefect.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_manufacturing.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/lowest%20defect.csv
+
 ### 5. Logistics Analysis
 - Total shipping cost by carrier
 - Average shipping time for air transport
 - Routes with above-average shipping cost (subquery benchmark)
 - Top carrier per location by order volume
 - Carrier performance classification: `Good / Average / Poor` using `CASE WHEN` with ±20% dynamic threshold
+
+**Snapshot of the result**
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/avg_shiptime.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/location.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/routes.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/shipping%20carrier.csv
+
+https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/top5vendor.csv
 
 ### SQL Techniques Used
 `Window functions (DENSE_RANK)` · `Correlated subqueries` · `GROUP BY / HAVING` · 
