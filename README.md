@@ -21,7 +21,7 @@
 
 ---
 
-## Phase 1 — SQL Descriptive & Diagnostic Analysis
+### Phase 1 — SQL Descriptive & Diagnostic Analysis
 Goal: Answer *"What happened and why?"*
 
 ### 1. Data Cleaning & Staging
@@ -99,13 +99,86 @@ https://github.com/lethhgnhung-cloud/supply_chain_analytic/blob/main/image/top5v
 
 ---
 
-## Phase 2 — Machine Learning (Upcoming)
-| Model | Goal |
-|---|---|
-| Demand forecasting | Predict future order quantities |
-| Defect rate classification | Flag high-risk suppliers |
-| Inventory optimization | Detect overstocked / understocked SKUs |
-| Shipping cost regression | Model cost by route, carrier, and transport mode |
+### Phase 2 — Machine Learning 
+
+> **A Python analytics project on a 100-SKU supply chain dataset — combining EDA, unsupervised clustering, and SKU performance scoring to surface actionable operational insights.**
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-visualization-4C72B0?style=for-the-badge)
+
+## 🎯 Project Overview
+
+This project applies a 3-phase analytical framework to a supply chain dataset containing product, inventory, logistics, manufacturing, and quality information. Given the small sample size (~100 records), the focus is deliberately shifted from predictive modeling toward **descriptive intelligence and unsupervised pattern discovery** — techniques that yield reliable, interpretable insights regardless of dataset size.
+
+| Attribute | Details |
+|-----------|---------|
+| **Language** | Python 3 (Google Colab) |
+| **Dataset** | `supply_chain_data.csv` — 100 SKUs, 24 features |
+| **Primary goal** | Insight generation, not prediction accuracy |
+| **Techniques** | EDA · Clustering · SKU Scoring |
+
+---
+
+## 🔬 Analytical Pipeline
+
+### Phase 1 — Correlation & Advanced EDA
+Exploratory analysis using correlation heatmap, pairplot by product type, and boxplots of defect rates across suppliers, locations, and transportation modes.
+
+**Objective:** Understand variable relationships before applying any algorithm — a critical foundation for small datasets where noise can mislead models.
+
+---
+
+### Phase 2 — Clustering (K-Means + PCA)
+Applied PCA (2 components) for dimensionality reduction, followed by K-Means (k=3) to segment all 100 SKUs into behavioral clusters.
+
+> **Note on PCA variance:** The 2 principal components explain ~18% of total variance. This is expected with 46 features post-encoding and means the 2D scatter is a rough approximation — cluster labels from the full feature space are more reliable than the visual positions.
+
+**Cluster profiles identified:**
+- **Cluster 0** — High stock, mid-range revenue: stable but potentially overstocked products
+- **Cluster 1** — Mid performance: the broad "average" group
+- **Cluster 2** — Operationally distinct: different logistics or cost profile warranting closer review
+
+---
+
+### Phase 3 — SKU Performance Scoring
+Built a composite weighted score to rank all 100 SKUs on a 0–100 scale.
+
+```python
+Score = (0.40 × Revenue_generated)
+      - (0.30 × Defect_rates)
+      - (0.20 × Lead_times)
+      - (0.10 × Stock_levels)
+```
+
+Scores were normalized using MinMaxScaler before ranking. Top 10 and bottom 10 SKUs were surfaced for prioritization decisions.
+
+---
+
+## 💡 Key Findings
+
+**1. Defect rates vary significantly by supplier.**
+Boxplot analysis shows clear differences in defect rate distribution across suppliers — some suppliers have both higher median defect rates and wider spread, suggesting inconsistent quality control.
+
+**2. Clustering surfaces a distinct high-stock group.**
+Cluster 0 shows elevated stock levels relative to mid-range revenue — a pattern consistent with overstocking or slow-moving inventory that wouldn't be visible from averages alone.
+
+**3. SKU scoring reveals hidden underperformers.**
+Several SKUs with moderate revenue rank poorly once defect rates and lead times are factored in — these would be overlooked by a revenue-only view.
+
+**4. Price does not linearly drive revenue.**
+Scatter analysis shows no strong linear relationship between price and revenue generated, indicating that sales volume and product category are stronger revenue drivers than price point alone.
+
+---
+
+## ⚠️ Limitations & Notes
+
+| Issue | Context |
+|-------|---------|
+| **Small sample (n=100)** | Results should be treated as directional signals for exploration, not statistically conclusive findings |
+| **PCA explains only 18% variance** | The 2D cluster visualization is approximate; cluster assignments are based on the full feature space and are more reliable than visual positions |
+| **Weights in scoring are subjective** | The 0.40/0.30/0.20/0.10 weights in Phase 3 are heuristic — business stakeholders should validate and adjust these based on organizational priorities |
 
 ---
 
